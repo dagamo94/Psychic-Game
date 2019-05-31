@@ -28,7 +28,11 @@ document.onkeyup = function (event) {
     // function cpuChoice(){
     //     return cpuGuess[Math.floor(Math.random() * cpuGuess.length)];
     // }
-    
+    function printUserGuesses(){
+        for(var i = 0; i < userGuesses.length; i++){ //prints current array values to the console
+            return userGuesses[i] + ",";
+        }
+    }
 
     if(cpuGuess.includes(userInput) && userGuesses.indexOf(userInput) < 0){
 
@@ -41,11 +45,9 @@ document.onkeyup = function (event) {
             
         }else if(userInput != computerChoice && guessesLeft > 1){
             guessesLeft--;
-            userGuesses.push(userInput);
-            
-
-            //use a forEach loop here once logic works  to print to the HTML file
+            userGuesses.push(userInput);            
             console.log("choose again");
+
         }else{
             computerChoice = cpuChoice();
             losses++;
@@ -57,13 +59,21 @@ document.onkeyup = function (event) {
         alert("Letter has already been used or press a letter from the alphabet (a-z)");
     }
 
+    
+
+    winsText.textContent = wins;
+    lossesText.textContent = losses;
+    guessesLeftText.textContent = guessesLeft;
+    userGuessesText.textContent = userGuesses.forEach(printUserGuesses());
+
     console.log("Wins: " + wins);
     console.log("Losses: " + losses);
     console.log("Guesses left: " + guessesLeft);
     console.log("CPU guess: " + computerChoice); //display the computer choice
-    for(var i = 0; i < userGuesses.length; i++){ //prints current array values to the console
-        console.log("Current user guesses: " + userGuesses[i]);
-    }
+    // for(var i = 0; i < userGuesses.length; i++){ //prints current array values to the console
+    //     console.log("Current user guesses: " + userGuesses[i]);
+    // }
+    console.log(printUserGuesses());
     
 
     console.log("\n");
