@@ -28,7 +28,7 @@ document.onkeyup = function (event) {
     // function cpuChoice(){
     //     return cpuGuess[Math.floor(Math.random() * cpuGuess.length)];
     // }
-    function printUserGuesses(){
+    function printUserGuesses(arr){
         for(var i = 0; i < userGuesses.length; i++){ //prints current array values to the console
             return userGuesses[i] + ",";
         }
@@ -59,12 +59,19 @@ document.onkeyup = function (event) {
         alert("Letter has already been used or press a letter from the alphabet (a-z)");
     }
 
-    
+    function printTo(){
+        
+    }
 
     winsText.textContent = wins;
     lossesText.textContent = losses;
     guessesLeftText.textContent = guessesLeft;
-    userGuessesText.textContent = userGuesses.forEach(printUserGuesses());
+    userGuessesText.textContent = userGuesses.forEach(function(item){
+        
+        var printText = item;
+        console.log("user guesses: " + printText);
+        return printText + ", ";
+    });
 
     console.log("Wins: " + wins);
     console.log("Losses: " + losses);
@@ -73,7 +80,7 @@ document.onkeyup = function (event) {
     // for(var i = 0; i < userGuesses.length; i++){ //prints current array values to the console
     //     console.log("Current user guesses: " + userGuesses[i]);
     // }
-    console.log(printUserGuesses());
+    //console.log(printUserGuesses());
     
 
     console.log("\n");
