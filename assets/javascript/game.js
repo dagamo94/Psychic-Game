@@ -32,15 +32,6 @@ document.onkeyup = function (event) {
 
     var userInput = event.key;
 
-   
-    function printUserGuesses(arr) {
-        for (var i = 0; i < userGuesses.length; i++) { //prints current user guesses array values to the console
-            return userGuesses[i] + ",";
-        }
-    }
-
-
-
     if (cpuGuess.includes(userInput) && userGuesses.indexOf(userInput) < 0) {
 
         if (userInput === computerChoice && guessesLeft > 1) {
@@ -73,7 +64,8 @@ document.onkeyup = function (event) {
     console.log("Wins: " + wins);
     console.log("Losses: " + losses);
     console.log("Guesses left: " + guessesLeft);
-    console.log("CPU guess: " + computerChoice); 
+    console.log("CPU choice: " + computerChoice); 
+    console.log("User guesses: " + userGuesses);
 
 
     console.log("\n");
