@@ -10,11 +10,11 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var userGuesses = [];
-var cpuGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var cpuOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var computerChoice = cpuChoice();
 
 function cpuChoice() {     //generates a random number every time a key is pressed but is only called whenever the game needs to be reset
-    return cpuGuess[Math.floor(Math.random() * cpuGuess.length)];
+    return cpuOptions[Math.floor(Math.random() * cpuOptions.length)];
 }
 
 function resetVariables(){
@@ -32,11 +32,10 @@ document.onkeyup = function (event) {
 
     var userInput = event.key;
 
-    if (cpuGuess.includes(userInput) && userGuesses.indexOf(userInput) < 0) {
+    if (cpuOptions.includes(userInput) && userGuesses.indexOf(userInput) < 0) { //if userInput is a value within the array cpuOptions and the index of the userInput in the array userGuesses is -1 (which means that the user has not yet guessed/pressed that key), then continue
 
         if (userInput === computerChoice && guessesLeft > 1) {
             wins++;
-            
             resetVariables();
             console.log("you won!");
 
@@ -44,7 +43,7 @@ document.onkeyup = function (event) {
             guessesLeft--;
             userGuesses.push(userInput);
             console.log("choose again");
-            userGuessesText.append(event.key);
+            userGuessesText.append(event.key + ", ");
 
 
         } else {
@@ -72,3 +71,6 @@ document.onkeyup = function (event) {
 
 }
 
+
+// console.log("return the value at index 30: " + cpuOptions[30]);
+// console.log("look for the index of nn which doesn't exist in the array: " + cpuGuess.indexOf("nn"));
